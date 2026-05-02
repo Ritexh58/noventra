@@ -1,0 +1,80 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --void: #050508;
+  --deep: #080810;
+  --glass: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.07);
+  --glass-hover: rgba(255,255,255,0.10);
+  --text: #F0F0FA;
+  --sub: #8888A8;
+  --muted: #3A3A55;
+  --v: #6C4EE8;
+  --v2: #9B6EFF;
+  --cyan: #00D4EE;
+  --pink: #FF4D9E;
+  --amber: #FFAA20;
+  --green: #00EE80;
+  --font-display: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+  --font-body: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+  --font-serif: 'Cormorant Garamond', Garamond, serif;
+  --font-mono: 'DM Mono', 'SF Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--void);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  /* cursor: none; */
+}
+
+ 
+
+/* section {
+  scroll-margin-top: 100px;
+} */
+
+
+/* ─── MOBILE UTILITIES ─── */
+@media (max-width: 768px) {
+  
+  /* Hero */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    padding: 60px 24px 40px !important;
+    gap: 40px !important;
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Portfolio */
+  .portfolio-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Portal */
+  .portal-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Tools */
+  .tools-flex {
+    gap: 16px !important;
+  }
+  .tool-orb {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  /* General padding */
+  .section-pad {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
