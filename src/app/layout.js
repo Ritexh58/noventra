@@ -14,7 +14,7 @@ export const metadata = {
   title: 'Noventra Visuals — Premium Video Studio',
   description: 'Every frame has a story.',
    icons: {
-    icon: '/logo.png',
+    icon: '/favicon.ico',
   },
 }
 

@@ -79,22 +79,18 @@ export default function Portal() {
   return (
     <section style={{ padding: '80px 60px 120px', position: 'relative', zIndex: 1 }}>
       <style>{`
-        @media (max-width: 768px) {
-          .portal-grid {
-            grid-template-columns: 1fr !important;
-            padding: 40px 24px !important;
-          }
-        }
-        .portal-form-inner {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-        }
-        .portal-fields {
-          flex: 1;
-        }
-      `}</style>
-
+  @media (max-width: 768px) {
+    .portal-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .portal-form-grid {
+      grid-template-columns: 1fr !important;
+    }
+    section[style*="80px 60px"] {
+      padding: 60px 20px 80px !important;
+    }
+  }
+`}</style>
       <div style={{
         maxWidth: '1280px', margin: '0 auto',
         display: 'grid',
@@ -144,7 +140,7 @@ export default function Portal() {
 
           <div className="portal-fields">
             {/* Row 1 — Brand name + Budget */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <div className='portal-form-grid' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
               <div>
                 <label style={labelStyle}>Brand name *</label>
                 <input
@@ -326,7 +322,7 @@ export default function Portal() {
 
           <div className="portal-fields" style={{ flex: 1 }}>
             {/* Row 1 */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <div   className='portal-form-grid' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
               <div>
                 <label style={labelStyle}>Full name *</label>
                 <input

@@ -1,24 +1,15 @@
 'use client'
 
-
+import { scrollToSection } from '@/app/component/utils/scroll'
 
 export default function Footer() {
+  const links = [
+    { label: 'Work', id: 'portfolio' },
+    { label: 'Services', id: 'services' },
+    { label: 'About', id: 'about' },
+    { label: 'Join Us', id: 'portal' },
+  ]
 
-  <style>{`
-  @media (max-width: 768px) {
-    .footer-inner {
-      flex-direction: column !important;
-      padding: 40px 24px !important;
-      gap: 32px !important;
-    }
-    .footer-links {
-      flex-wrap: wrap !important;
-      gap: 16px !important;
-    }
-  }
-`}</style>
-
-  const links = ['Work', 'Services', 'About', 'Join Us', 'Blog']
   const socials = [
     { label: 'IG', url: 'https://instagram.com' },
     { label: 'YT', url: 'https://youtube.com' },
@@ -39,10 +30,24 @@ export default function Footer() {
       zIndex: 1,
       background: 'rgba(5,5,8,0.8)',
       backdropFilter: 'blur(20px)'
-    }}className="footer-inner">
+    }} className="footer-inner">
+
+      <style>{`
+        @media (max-width: 768px) {
+          .footer-inner {
+            flex-direction: column !important;
+            padding: 40px 24px !important;
+            gap: 32px !important;
+          }
+          .footer-links {
+            flex-wrap: wrap !important;
+            gap: 16px !important;
+          }
+        }
+      `}</style>
 
       {/* Brand */}
-      <div  className="footer-links">
+      <div className="footer-links">
         <div style={{
           fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
           fontSize: '18px', fontWeight: '700',
@@ -58,23 +63,26 @@ export default function Footer() {
 
       {/* Nav Links */}
       <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-        {links.map((link, i) => (
-          <span key={i} style={{
-            fontSize: '13px', color: 'var(--sub)',
-            cursor: 'pointer', letterSpacing: '0.02em',
-            transition: 'color 0.2s',
-            fontFamily: 'var(--font-body)'
-          }}
+        {links.map((link) => (
+          <span
+            key={link.id}
+            onClick={() => scrollToSection(link.id)}
+            style={{
+              fontSize: '13px', color: 'var(--sub)',
+              cursor: 'pointer', letterSpacing: '0.02em',
+              transition: 'color 0.2s',
+              fontFamily: 'var(--font-body)'
+            }}
             onMouseEnter={e => e.target.style.color = 'var(--text)'}
             onMouseLeave={e => e.target.style.color = 'var(--sub)'}
-          >{link}</span>
+          >{link.label}</span>
         ))}
       </div>
 
       {/* Socials */}
       <div style={{ display: 'flex', gap: '12px' }}>
-        {socials.map((s, i) => (
-          <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
+        {socials.map((s) => (
+          <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer"
             style={{
               width: '40px', height: '40px',
               borderRadius: '50%',

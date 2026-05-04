@@ -9,6 +9,10 @@ const tabs = [
   { label: 'Podcast & Long-Form', icon: '🎙️', color: '#FF4D9E' },
   { label: 'Scroll Content', icon: '📱', color: '#FFAA20' },
 ]
+const { data, error } = await supabase
+  .from('portfolio_items')
+  .select('*')
+  .order('sort_order', { ascending: true })
 
 const ease = [0.22, 1, 0.36, 1]
 
