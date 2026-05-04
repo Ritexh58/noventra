@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 
 export default function Portal() {
   const { register: registerBrand, handleSubmit: handleBrandSubmit, reset: resetBrand, watch: watchBrand, formState: { errors: brandErrors } } = useForm()
-  const { register: registerCreator, handleSubmit: handleCreatorSubmit, reset: resetCreator, formState: { errors: creatorErrors } } = useForm()
+  const { register: registerCreator, handleSubmit: handleCreatorSubmit, reset: resetCreator, watch: watchCreator, formState: { errors: creatorErrors } } = useForm()
 
   const [brandStatus, setBrandStatus] = useState('')
   const [creatorStatus, setCreatorStatus] = useState('')
@@ -13,6 +13,8 @@ export default function Portal() {
 
   const brandEmail = watchBrand('email')
   const brandPhone = watchBrand('phone')
+  const creatorEmail = watchCreator('email')
+  const creatorPhone = watchCreator('phone')
 
   const onBrandSubmit = async (data) => {
     setBrandStatus('loading')
@@ -322,7 +324,7 @@ export default function Portal() {
 
           <div className="portal-fields" style={{ flex: 1 }}>
             {/* Row 1 */}
-            <div   className='portal-form-grid' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <div className='portal-form-grid' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
               <div>
                 <label style={labelStyle}>Full name *</label>
                 <input
@@ -373,11 +375,11 @@ export default function Portal() {
 
             {/* Email */}
             <div style={{ marginBottom: '16px' }}>
-              <label style={labelStyle}>Email *</label>
+              <label style={labelStyle}>Email {!creatorPhone && '*'}</label>
               <input
                 {...registerCreator("email", {
                   validate: (val) => {
-                    const phone = document.querySelector('input[name="creator_phone"]')?.value
+                    const phone = watchCreator('phone')
                     if (!val && !phone) return "Provide email or phone"
                     if (val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) return "Invalid email format"
                     return true
@@ -394,11 +396,11 @@ export default function Portal() {
 
             {/* Phone */}
             <div style={{ marginBottom: '28px' }}>
-              <label style={labelStyle}>Phone *</label>
+              <label style={labelStyle}>Phone {!creatorEmail && '*'}</label>
               <input
                 {...registerCreator("phone", {
                   validate: (val) => {
-                    const email = document.querySelector('input[type="email"]')?.value
+                    const email = watchCreator('email')
                     if (!val && !email) return "Provide email or phone"
                     if (val && !/^\d{10}$/.test(val)) return "Phone must be 10 digits"
                     return true
@@ -408,7 +410,6 @@ export default function Portal() {
                 placeholder="10-digit number"
                 type="tel"
                 maxLength={10}
-                name="creator_phone"
                 onFocus={e => e.target.style.borderColor = 'rgba(0,212,238,0.4)'}
                 onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
               />
