@@ -74,10 +74,8 @@ export const metadata = {
     icon: '/favicon.ico',
   },
 
-  // Verification
-  verification: {
-    google: 'paste-your-search-console-code-here',
-  },
+  
+   
 }
 
 export default function RootLayout({ children }) {
