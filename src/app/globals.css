@@ -78,3 +78,10 @@ body {
     padding-right: 24px !important;
   }
 }
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

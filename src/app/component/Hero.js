@@ -209,7 +209,7 @@ export default function Hero() {
             fontSize: '10px', color: 'var(--sub)',
             letterSpacing: '0.14em', textTransform: 'uppercase',
             fontFamily: 'var(--font-mono)'
-          }}>Showreel 2025</span>
+          }}>Showreel 2026</span>
         </div>
 
         {/* REC pill */}

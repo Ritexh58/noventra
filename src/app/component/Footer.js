@@ -125,7 +125,7 @@ export default function Footer() {
         <span style={{
           fontSize: '11px', color: 'var(--muted)',
           fontFamily: 'var(--font-mono)', letterSpacing: '0.06em'
-        }}>© 2025 Noventra Visuals. All rights reserved.</span>
+        }}>© 2026 Noventra Visuals. All rights reserved.</span>
         <span style={{
           fontSize: '11px', color: 'var(--muted)',
           fontFamily: 'var(--font-mono)', letterSpacing: '0.06em'
